@@ -1,5 +1,6 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Repository
 public class ContactsDAOImpl implements ContactsDAO {
 
+    @Value("${maxSize}")
     private int maxSize;
 
     public void setMaxSize(int maxSize){
@@ -21,7 +23,7 @@ public class ContactsDAOImpl implements ContactsDAO {
         return maxSize;
     }
 
-    private List<Contact> listOfContacts; //= new ArrayList<Contact>();
+    private List<Contact> listOfContacts;
 
     @Override
     public void setContact(Contact contact) {
@@ -37,7 +39,6 @@ public class ContactsDAOImpl implements ContactsDAO {
         return listOfContacts;
     }
 
-    @Autowired
     public void setListOfContacts(List listOfContacts){
         if(listOfContacts.size()<=maxSize) {
             this.listOfContacts = listOfContacts;

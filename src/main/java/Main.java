@@ -11,6 +11,6 @@ public class Main {
         Contact secondContact = (Contact)contactContext.getBean("contextContact2");
         ContactsDAOImpl contactsDAO = (ContactsDAOImpl)contactContext.getBean("ContactsDAOImpl1");
         ContactsServiceImpl contactsService = (ContactsServiceImpl)contactContext.getBean("ContactsServiceImpl1");
-        System.out.println(contactsService.getAllContacts(contactsDAO));
+        System.out.println(contactsService.getAllContacts());
     }
 }
